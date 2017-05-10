@@ -1,7 +1,7 @@
-var db = require('../utilities/database').database;
+var db = require('../utilities/database');
 
 var getAll = function(req, res, next){
-	db.any('select * from test')
+	db.database().any('select * from comites')
     .then(function (data) {
       res.status(200)
         .json({
