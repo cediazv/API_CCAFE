@@ -1,13 +1,13 @@
 var db = require('../utilities/database');
 
 var getAll = function(req, res, next){
-	db.database().any('select * from comites')
+	db.database().any('select * from comite')
     .then(function (data) {
       res.status(200)
         .json({
           status: 'success',
           data: data,
-          message: 'Retrieved ALL peoples'
+          message: 'Retorna todos los comités de la facultad'
         });
     })
     .catch(function (err) {
