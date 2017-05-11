@@ -18,7 +18,7 @@ var getAll = function(req, res, next){
 var getSingle = function(req, res, next){
   var cod = parseInt(req.params.cod);
   db.database().one('select * from comite where cod_comite = $1', cod)
-    .then(function () {
+    .then(function (data) {
       res.status(200)
         .json({
           status: 'success',
