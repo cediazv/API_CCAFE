@@ -23,7 +23,7 @@ var getSingle = function(req, res, next){
         .json({
           status: 'success',
           data: data,
-          message: 'Retorna todos los comités de la facultad'
+          message: 'Retorna los datos de un comité de la facultad'
         });
     })
     .catch(function (err) {
