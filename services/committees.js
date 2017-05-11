@@ -17,7 +17,7 @@ var getAll = function(req, res, next){
 
 var getSingle = function(req, res, next){
   var cod = parseInt(req.params.cod);
-  db.database().one('select cod_comite, nombre_comite, to_char(f_creacion_comite, \'DD/MM/YYYY\'), banner_comite from comite where cod_comite = $1', cod)
+  db.database().one('select cod_comite, nombre_comite, to_char(f_creacion_comite, \'DD/MM/YYYY\') as f_creacion_comite, banner_comite from comite where cod_comite = $1', cod)
     .then(function (data) {
       res.status(200)
         .json({
