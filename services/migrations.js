@@ -11,7 +11,7 @@ var dropScript = function(req, res, next){
     db.database().tx(t => {
         var queries = [];
         sqls.forEach(function(s){
-          queries.push(t.none(s));
+          queries.push(t.none(s.split('\r').join(' ')));
           console.log(s);
         });
         return t.batch(queries);
