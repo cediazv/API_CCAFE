@@ -7,13 +7,12 @@ var dropScript = function(req, res, next){
     if (err) return next(err);
 
     var sqls = data_sql.split('\n');
+    var queries = [];
+    sqls.forEach(function(s){
+      queries.push(t.none(decodeURIComponent(s)));
+    });
 
     db.database().tx(t => {
-        var queries = [];
-        sqls.forEach(function(s){
-          queries.push(t.none(decodeURIComponent(s)));
-          console.log(decodeURIComponent(s));
-        });
         return t.batch(queries);
     })
     .then(function (data) {
