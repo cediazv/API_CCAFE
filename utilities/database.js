@@ -29,7 +29,7 @@ var pgp = require('pg-promise')(options);
 
 module.exports = {
 	database: function(){
-		var client = new pgp.Client(connectionString);
+		var client = new require("pg").Client(connectionString);
 		client.connect();
 		return client;
 	}
