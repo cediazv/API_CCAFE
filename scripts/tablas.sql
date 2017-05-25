@@ -1,4 +1,4 @@
-CREATE TABLE rol
+﻿CREATE TABLE rol
 (
 	cod_rol SERIAL NOT NULL,
 	nombre_rol VARCHAR(20) NOT NULL,
@@ -25,6 +25,8 @@ CREATE TABLE comite
 	icono_comite VARCHAR(100) NOT NULL,
 	banner_comite VARCHAR(100) NOT NULL,
 	estado_comite BOOLEAN NOT NULL DEFAULT TRUE,
+	contenido_comite TEXT NULL,
+	url_comite VARCHAR(100) NULL,
 	CONSTRAINT pk_cod_comite PRIMARY KEY (cod_comite),
 	CONSTRAINT uk_nombre_comite UNIQUE (nombre_comite)
 );
