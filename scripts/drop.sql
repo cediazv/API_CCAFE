@@ -1,1 +1,1 @@
-﻿DROP TABLE IF EXISTS menu_comite;
+﻿DROP TABLE IF EXISTS menu_comite, integrante_comite, comite, integrante, rol;
