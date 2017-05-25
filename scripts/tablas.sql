@@ -1,4 +1,4 @@
-CREATE TABLE rol
+﻿CREATE TABLE rol
 (
 	cod_rol SERIAL NOT NULL,
 	nombre_rol VARCHAR(20) NOT NULL,
@@ -46,7 +46,10 @@ CREATE TABLE menu_comite
 	cod_menu SERIAL NOT NULL,
 	nombre_menu VARCHAR(50) NOT NULL,
 	estado_menu BOOLEAN NOT NULL DEFAULT TRUE,
-	url_menu VARCHAR(100) NOT NULL,
+	contenido_menu TEXT NOT NULL,
 	cod_comite INT NOT NULL,
-	CONSTRAINT fk_cod_comite_menu FOREIGN KEY (cod_comite) REFERENCES comite (cod_comite)
+	cod_integrante_reg INT NOT NULL,
+	f_registro DATE NOT NULL DEFAULT CURRENT_DATE,
+	CONSTRAINT fk_cod_comite_menu FOREIGN KEY (cod_comite) REFERENCES comite (cod_comite),
+	CONSTRAINT fk_cod_integrante_menu FOREIGN KEY (cod_integrante_reg) REFERENCES integrante (cod_integrante)
 );
