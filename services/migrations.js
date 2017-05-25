@@ -1,30 +1,28 @@
 var db = require('../utilities/database');
 var fs = require('fs');
+var path = require('path');
+
+function sql(file) {
+    var fullPath = path.join(__dirname, file);
+    return new db.pgp.QueryFile(fullPath, {minify: true});
+}
+
+var sqlDrop = sql('../scripts/drop.sql');
+
 var dropScript = function(req, res, next){
 
-  fs.readFile('scripts/drop.sql', 'utf8', function(err, data_sql) {
-    if (err) return next(err);
-
-    var sqls = data_sql.split('\n');
-    var c = 0;
-    sqls.forEach(function(s){
-      db.database().none(s)
+      db.database().none(sqlDrop)
       .then(data=> {
-        c++;
-        if (c==sqls.length){
           res.status(200)
             .json({
               status: 'success',
               data: data,
               message: 'Eliminó toda la estructura'
             });
-        }
       })
       .catch(error=> {
           return next(error);
       });
-    });
-});
 }
 
 module.exports = {
