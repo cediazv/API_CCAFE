@@ -11,7 +11,7 @@ var sqlDrop = sql('scripts/drop.sql');
 
 var dropScript = function(req, res, next){
 
-  db.none(sqlDrop)
+  db.database().none(sqlDrop)
     .then(data=> {
       res.status(200)
         .json({
