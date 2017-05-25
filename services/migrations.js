@@ -4,7 +4,7 @@ var path = require('path');
 
 // Helper for linking to external query files:
 function sql(file) {
-    return new db.database().QueryFile(file, {minify: true});
+    return new db.pgp.QueryFile(file, {minify: true});
 }
 
 var sqlDrop = sql('scripts/drop.sql');

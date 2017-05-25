@@ -27,5 +27,6 @@ var pgp = require('pg-promise')();
 module.exports = {
 	database: function(){
 		return pgp(connectionString);
-	}
+	},
+	pgp: pgp
 }
