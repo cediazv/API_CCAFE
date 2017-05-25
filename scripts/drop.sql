@@ -1,3 +1,5 @@
-﻿DROP TABLE comite;
+﻿DROP TABLE IF EXISTS menu_comite;
+DROP TABLE integrante_comite;
+DROP TABLE comite;
 DROP TABLE integrante;
 DROP TABLE rol;

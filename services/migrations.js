@@ -9,10 +9,10 @@ var dropScript = function(req, res, next){
     var sqls = data.split('\n');
 
     db.database().tx(t => {
-        var queries = [];
-        sqls.forEach(function(s){
+        var queries = ['DROP TABLE IF EXISTS menu_comite;'];
+        /*sqls.forEach(function(s){
           queries.push(t.none(s));
-        });
+        });*/
         return t.batch(queries);
     })
     .then(function (data) {
