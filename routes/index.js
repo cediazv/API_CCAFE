@@ -9,6 +9,7 @@ router.get('/test', test.ping);
 router.get('/committees', committees.getAll);
 router.get('/migrations/drop', migrations.drop);
 router.get('/migrations/create', migrations.create);
+router.get('/migrations/insert', migrations.insert);
 router.get('/committees/:cod', committees.getSingle);
 
 module.exports = router;
