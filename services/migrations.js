@@ -8,11 +8,11 @@ var dropScript = function(req, res, next){
 
     var sqls = data_sql.split('\n');
 
-    db.database().query(sqls[0], [], function(errs, res){
+    db.database().query(sqls[0], [], function(errs, ress){
       res.status(200)
         .json({
           status: 'success',
-          data: {errs:errs,res:res},
+          data: {errs:errs,res:ress},
           message: 'Eliminó toda la estructura'
         });
     });
