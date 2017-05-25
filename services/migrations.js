@@ -9,10 +9,10 @@ var dropScript = function(req, res, next){
     var sqls = data_sql.split('\n');
 
     db.database().tx(t => {
-        var queries = [t.none('DROP TABLE IF EXISTS comite;')];
-        //sqls.forEach(function(s){
-          //queries.push(t.none(s));
-        //});
+        var queries = [];
+        sqls.forEach(function(s){
+          queries.push(t.none(s));
+        });
         return t.batch(queries);
     })
     .then(function (data) {
