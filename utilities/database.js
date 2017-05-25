@@ -1,4 +1,4 @@
-var promise = require('bluebird');
+//var promise = require('bluebird');
 var fs = require('fs')
 var string = require('util');
 
@@ -25,7 +25,7 @@ fs.readFile('dbConfig.txt', 'utf8', function(err, data) {
 	connectionString = string.format('postgres://%s:%s@%s:%s/%s', data.username, data.password, data.host, data.port, data.database);
 });
 
-var pgp = require('pg-promise')(options);
+var pgp = require('pg-promise')();
 
 module.exports = {
 	database: function(){
