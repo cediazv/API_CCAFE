@@ -8,6 +8,15 @@ var dropScript = function(req, res, next){
 
     var sqls = data_sql.split('\n');
 
+    db.databaseClient().query(sqls[0]);
+
+    res.status(200)
+        .json({
+          status: 'success',
+          data: {},
+          message: 'Eliminó toda la estructura: ' + sqls.join('--')
+        });
+
     /*var query = db.databaseClient().query(sqls[0]);
     query.on("end", function (result) {
       res.status(200)
