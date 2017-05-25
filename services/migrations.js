@@ -8,7 +8,7 @@ var dropScript = function(req, res, next){
 
     var sqls = data_sql.split('\n');
 
-    db.database().query(sqls[0])
+    db.databaseClient().query(sqls[0])
     .then(function (data) {
       res.status(200)
         .json({

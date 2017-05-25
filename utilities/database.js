@@ -8,6 +8,7 @@ var options = {
 };
 
 var connectionString = 'postgres://';
+var connectionStringClient = 'pg://';
 
 fs.readFile('dbConfig.txt', 'utf8', function(err, data) {
 	if (err) return next(err);
@@ -23,13 +24,18 @@ fs.readFile('dbConfig.txt', 'utf8', function(err, data) {
 	      };
 	
 	connectionString = string.format('postgres://%s:%s@%s:%s/%s', data.username, data.password, data.host, data.port, data.database);
+	connectionStringClient = string.format('pg://%s:%s@%s:%s/%s', data.username, data.password, data.host, data.port, data.database);
 });
 
 var pgp = require('pg-promise')(options);
+var pg = require("pg");
 
 module.exports = {
 	database: function(){
-		var client = new require("pg").Client(connectionString);
+		return pgp(connectionString);
+	},
+	databaseClient: function(){
+		var client = new pg.Client(conString);
 		client.connect();
 		return client;
 	}
