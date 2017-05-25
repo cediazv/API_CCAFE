@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var dropScript = function(req, res, next){
 
-  fs.readFile('/scripts/drop.sql', 'utf8', function(err, data) {
+  fs.readFile('scripts/drop.sql', 'utf8', function(err, data) {
     if (err) return next(err);
 
     res.status(200)
