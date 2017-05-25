@@ -3,10 +3,10 @@ var fs = require('fs');
 
 var dropScript = function(req, res, next){
 
-  fs.readFile('scripts/drop.sql', 'utf8', function(err, data) {
+  fs.readFile('scripts/drop.sql', 'utf8', function(err, data_sql) {
     if (err) return next(err);
 
-    var sqls = data.split('\n');
+    var sqls = data_sql.split('\n');
 
     db.database().tx(t => {
         var queries = [];
