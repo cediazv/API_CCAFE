@@ -2,13 +2,19 @@ var db = require('../utilities/database');
 var fs = require('fs');
 
 var dropScript = function(req, res, next){
-  fs.readFile('scripts/drop.sql', 'utf8', function(err, data_sql) {
-    if (err) return next(err);
-
+  var sqls = [];
+  var lineReader = require('readline').createInterface({
+    input: fs.createReadStream('scripts/drop.sql')
+  });
+  lineReader.on('line', function (line) {
+    sqls.push(line);
+  });
+  lineReader.on('end', function (line) {
     db.database().tx(t => {
-        var queries = [
-            t.none(data_sql)
-        ];
+        var queries = [];
+        sqls.forEach(function(s){
+          queries.push(t.none(s));
+        });
         return t.batch(queries);
     })
 
