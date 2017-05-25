@@ -8,13 +8,7 @@ var dropScript = function(req, res, next){
 
     var sqls = data_sql.split('\n');
 
-    db.database().tx(t => {
-        var queries = [];
-        sqls.forEach(function(s){
-          queries.push(t.none(s));
-        });
-        return t.batch(queries);
-    })
+    db.database().query(sqls[0])
     .then(function (data) {
       res.status(200)
         .json({
