@@ -12,7 +12,7 @@ var dropScript = function(req, res, next){
         var queries = [];
         sqls.forEach(function(s){
           queries.push(t.none(s));
-          console.log('[CARLOS]' + s);
+          console.log(s.split(' ').join('[CARLOS]'));
         });
         return t.batch(queries);
     })
