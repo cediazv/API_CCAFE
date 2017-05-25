@@ -3,23 +3,22 @@ var fs = require('fs');
 
 var dropScript = function(req, res, next){
   var sqls = [];
-  var lineReader = require('readline').createInterface({
+  /*var lineReader = require('readline').createInterface({
     input: fs.createReadStream('scripts/drop.sql')
   });
   lineReader.on('line', function (line) {
     sqls.push(line);
   });
   lineReader.on('end', function (line) {
-    db.database().tx(t => {
-        var queries = [];
-        sqls.forEach(function(s){
+    
+  });*/
+  db.database().tx(t => {
+        var queries = ['DROP TABLE integrante_comite;'];
+        /*sqls.forEach(function(s){
           queries.push(t.none(s));
-        });
+        });*/
         return t.batch(queries);
     })
-
-
-    //result(data_sql)
     .then(function (data) {
       res.status(200)
         .json({
@@ -31,7 +30,6 @@ var dropScript = function(req, res, next){
     .catch(function (err) {
       return next(err);
     });
-  });
 }
 
 module.exports = {
