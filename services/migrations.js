@@ -7,7 +7,7 @@ function sql(file) {
     return new db.pgp.QueryFile(file, {minify: true});
 }
 
-var sqlDrop = sql('scripts/drop.sql');
+var sqlDrop = sql('/scripts/drop.sql');
 
 var dropScript = function(req, res, next){
 
