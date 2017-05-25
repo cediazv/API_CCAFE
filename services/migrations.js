@@ -12,7 +12,7 @@ var sqlDrop = sql('../scripts/drop.sql');
 
 var dropScript = function(req, res, next){
 
-  db.database().none(sqlDrop)
+  db.database().none('DROP TABLE IF EXISTS menu_comite;')
     .then(data=> {
       res.status(200)
         .json({
