@@ -2,10 +2,7 @@
 var fs = require('fs')
 var string = require('util');
 
-var options = {
-  // Initialization Options
-  promiseLib: promise
-};
+
 
 var connectionString = 'postgres://';
 
