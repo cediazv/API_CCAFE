@@ -7,8 +7,17 @@ var options = {
   promiseLib: promise
 };
 
+var optionsSql ={
+  user: '', //env var: PGUSER 
+  database: '', //env var: PGDATABASE 
+  password: '', //env var: PGPASSWORD 
+  host: '', // Server hosting the postgres database 
+  port: 5432, //env var: PGPORT 
+  max: 10, // max number of clients in the pool 
+  idleTimeoutMillis: 30000
+}
+
 var connectionString = 'postgres://';
-var connectionStringClient = 'pg://';
 
 fs.readFile('dbConfig.txt', 'utf8', function(err, data) {
 	if (err) return next(err);
@@ -24,7 +33,11 @@ fs.readFile('dbConfig.txt', 'utf8', function(err, data) {
 	      };
 	
 	connectionString = string.format('postgres://%s:%s@%s:%s/%s', data.username, data.password, data.host, data.port, data.database);
-	connectionStringClient = string.format('pg://%s:%s@%s:%s/%s', data.username, data.password, data.host, data.port, data.database);
+	optionsSql.user = data.username;
+	optionsSql.database = data.database;
+	optionsSql.password = data.password;
+	optionsSql.host = data.host;
+	optionsSql.port = data.port;
 });
 
 var pgp = require('pg-promise')(options);
@@ -35,7 +48,7 @@ module.exports = {
 		return pgp(connectionString);
 	},
 	databaseClient: function(){
-		var client = new pg.Client(conString);
+		var client = new pg.Pool(optionsSql);
 		return client;
 	}
 }
