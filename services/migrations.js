@@ -21,7 +21,7 @@ var dropScript = function(req, res, next){
         });
     })
     .catch(error=> {
-        return next(err);
+        return next(error);
     });
 }
 
