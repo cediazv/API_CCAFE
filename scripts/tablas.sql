@@ -1,4 +1,4 @@
-﻿CREATE TABLE rol
+CREATE TABLE rol
 (
 	cod_rol SERIAL NOT NULL,
 	nombre_rol VARCHAR(20) NOT NULL,
