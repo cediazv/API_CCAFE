@@ -6,12 +6,26 @@ var dropScript = function(req, res, next){
   fs.readFile('scripts/drop.sql', 'utf8', function(err, data) {
     if (err) return next(err);
 
-    res.status(200)
+    var sqls = data.split('\n');
+
+    db.database().tx(t => {
+        var queries = [];
+        sqls.forEach(function(s){
+          queries.push(t.none(s));
+        });
+        return t.batch(queries);
+    })
+    .then(function (data) {
+      res.status(200)
         .json({
           status: 'success',
-          data: {},
-          message: 'Eliminó toda la estructura: ' + data
+          data: data,
+          message: 'Eliminó toda la estructura: ' + sqls.join('--')
         });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
   });
   
     /*db.database().tx(t => {
