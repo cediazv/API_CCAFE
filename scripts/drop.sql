@@ -1,5 +1,5 @@
 ﻿DROP TABLE IF EXISTS menu_comite;
-DROP TABLE integrante_comite;
-DROP TABLE comite;
-DROP TABLE integrante;
-DROP TABLE rol;
+DROP TABLE IF EXISTS integrante_comite;
+DROP TABLE IF EXISTS comite;
+DROP TABLE IF EXISTS integrante;
+DROP TABLE IF EXISTS rol;
