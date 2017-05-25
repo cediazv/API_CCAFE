@@ -8,8 +8,16 @@ var dropScript = function(req, res, next){
 
     var sqls = data_sql.split('\n');
 
-    db.databaseClient().query(sqls[0])
-    .then(function (data) {
+    var query = db.databaseClient().query(sqls[0]);
+    query.on("end", function (result) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: result,
+          message: 'Eliminó toda la estructura: ' + sqls.join('--')
+        });
+    });
+    /*.then(function (data) {
       res.status(200)
         .json({
           status: 'success',
@@ -19,7 +27,7 @@ var dropScript = function(req, res, next){
     })
     .catch(function (err) {
       return next(err);
-    });
+    });*/
   });
   
     /*db.database().tx(t => {
