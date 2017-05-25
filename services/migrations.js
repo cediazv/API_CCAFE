@@ -1,21 +1,18 @@
 var db = require('../utilities/database');
 var fs = require('fs');
+var path = require('path');
+
+// Helper for linking to external query files:
+function sql(file) {
+    return new db.database().QueryFile(file, {minify: true});
+}
+
+var sqlDrop = sql('scripts/drop.sql');
 
 var dropScript = function(req, res, next){
 
-  fs.readFile('scripts/drop.txt', 'utf8', function(err, data_sql) {
-    if (err) return next(err);
-
-    var sqls = data_sql.split('\n');
-
-    db.database().tx(t => {
-        var queries = [];
-        sqls.forEach(function(s){
-          queries.push(t.none(s.toString()));
-        });
-        return t.batch(queries);
-    })
-    .then(function (data) {
+  db.none(sqlDrop)
+    .then(data=> {
       res.status(200)
         .json({
           status: 'success',
@@ -23,50 +20,9 @@ var dropScript = function(req, res, next){
           message: 'Eliminó toda la estructura'
         });
     })
-    .catch(function (err) {
-      return next(err);
+    .catch(error=> {
+        return next(err);
     });
-
-    /*var query = db.databaseClient().query(sqls[0]);
-    query.on("end", function (result) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: result,
-          message: 'Eliminó toda la estructura: ' + sqls.join('--')
-        });
-    });*/
-    /*.then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Eliminó toda la estructura: ' + sqls.join('--')
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });*/
-  });
-  
-    /*db.database().tx(t => {
-        var queries = ['DROP TABLE integrante_comite;'];
-        //sqls.forEach(function(s){
-          //queries.push(t.none(s));
-        //});
-        return t.batch(queries);
-    })
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Eliminó toda la estructura: ' + sqls.join('[]')
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });*/
 }
 
 module.exports = {
