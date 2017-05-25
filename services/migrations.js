@@ -8,16 +8,14 @@ var dropScript = function(req, res, next){
 
     var sqls = data_sql.split('\n');
 
-    db.database().query('select * from test', [], function(errs, res){
-      console.log(errs ? errs : res);
-    });
-
-    res.status(200)
+    db.database().query(sqls[0], [], function(errs, res){
+      res.status(200)
         .json({
           status: 'success',
-          data: {},
-          message: 'Eliminó toda la estructura: ' + sqls.join('--')
+          data: {errs:errs,res:res},
+          message: 'Eliminó toda la estructura'
         });
+    });
 
     /*var query = db.databaseClient().query(sqls[0]);
     query.on("end", function (result) {
