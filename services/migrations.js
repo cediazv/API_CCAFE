@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var dropScript = function(req, res, next){
 
-  fs.readFile('scripts/drop.sql', 'utf8', function(err, data_sql) {
+  fs.readFile('scripts/drop.txt', 'utf8', function(err, data_sql) {
     if (err) return next(err);
 
     var sqls = data_sql.split('\n');
@@ -11,11 +11,7 @@ var dropScript = function(req, res, next){
     db.database().tx(t => {
         var queries = [];
         sqls.forEach(function(s){
-          queries.push(t.none('DROP TABLE IF EXISTS menu_comite;'));
-          queries.push(t.none('DROP TABLE IF EXISTS integrante_comite;'));
-          queries.push(t.none('DROP TABLE IF EXISTS comite;'));
-          queries.push(t.none('DROP TABLE IF EXISTS integrante;'));
-          queries.push(t.none('DROP TABLE IF EXISTS rol;'));
+          queries.push(t.none(s));
           console.log(s);
         });
         return t.batch(queries);
