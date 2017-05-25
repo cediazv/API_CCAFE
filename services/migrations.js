@@ -12,6 +12,10 @@ var dropScript = function(req, res, next){
         var queries = [];
         sqls.forEach(function(s){
           queries.push(t.none('DROP TABLE IF EXISTS menu_comite;'));
+          queries.push(t.none('DROP TABLE IF EXISTS integrante_comite;'));
+          queries.push(t.none('DROP TABLE IF EXISTS comite;'));
+          queries.push(t.none('DROP TABLE IF EXISTS integrante;'));
+          queries.push(t.none('DROP TABLE IF EXISTS rol;'));
           console.log(s);
         });
         return t.batch(queries);
