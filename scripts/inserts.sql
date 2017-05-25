@@ -1,4 +1,4 @@
-﻿INSERT INTO rol (nombre_rol)
+INSERT INTO rol (nombre_rol)
 VALUES ('Encargado'), ('Asistente');
 
 INSERT INTO integrante (nombre_integrante, apellido_integrante, cedula_integrante)
