@@ -36,7 +36,6 @@ module.exports = {
 	},
 	databaseClient: function(){
 		var client = new pg.Client(conString);
-		client.connect();
 		return client;
 	}
 }
