@@ -24,6 +24,7 @@ var dropScript = function(req, res, next){
           return next(error);
       });
     });
+});
 }
 
 module.exports = {
