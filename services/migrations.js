@@ -8,13 +8,23 @@ var dropScript = function(req, res, next){
 
     var sqls = data_sql.split('\n');
 
-    db.database().query(sqls[0], [], function(errs, ress){
+    db.database().tx(t => {
+        var queries = [t.none('DROP TABLE IF EXISTS comite;')];
+        //sqls.forEach(function(s){
+          //queries.push(t.none(s));
+        //});
+        return t.batch(queries);
+    })
+    .then(function (data) {
       res.status(200)
         .json({
           status: 'success',
-          data: {errs:errs,res:ress},
+          data: data,
           message: 'Eliminó toda la estructura'
         });
+    })
+    .catch(function (err) {
+      return next(err);
     });
 
     /*var query = db.databaseClient().query(sqls[0]);
