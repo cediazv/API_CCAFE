@@ -1,5 +1,5 @@
 var promise = require('bluebird');
-var fs = require('fs')
+var fs = require('fs');
 var string = require('util');
 
 var options = {
