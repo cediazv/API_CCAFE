@@ -2,6 +2,7 @@ CREATE TABLE rol
 (
 	cod_rol SERIAL NOT NULL,
 	nombre_rol VARCHAR(20) NOT NULL,
+	edita_contenido_rol BOOLEAN NOT NULL DEFAULT TRUE,
 	CONSTRAINT pk_cod_rol PRIMARY KEY (cod_rol),
 	CONSTRAINT uk_nombre_rol UNIQUE (nombre_rol)
 );
@@ -46,7 +47,8 @@ CREATE TABLE menu_comite
 	cod_menu SERIAL NOT NULL,
 	nombre_menu VARCHAR(50) NOT NULL,
 	estado_menu BOOLEAN NOT NULL DEFAULT TRUE,
-	contenido_menu TEXT NOT NULL,
+	contenido_menu TEXT NULL,
+	url_menu VARCHAR(100) NULL,
 	cod_comite INT NOT NULL,
 	cod_integrante_reg INT NOT NULL,
 	f_registro DATE NOT NULL DEFAULT CURRENT_DATE,
