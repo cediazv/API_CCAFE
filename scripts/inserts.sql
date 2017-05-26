@@ -47,4 +47,17 @@ VALUES
 	('Orientación vocacional y profesional', NULL, 'orientacion.html', 8, 8),
 	('Talleres para el aprendizaje', 'Contenido de base de datos', NULL, 8, 8),
 	('Grupos de apoyo', NULL, 'apoyo.html', 8, 8),
-	('PAE', 'Contenido de base de datos', NULL, 8, 8);
+	('PAE', 'Contenido de base de datos', NULL, 8, 8),
+        /*OTROS: Investigaciones*/
+	('Grupos de investigación', NULL, 'grupos.html', 6, 6),
+	('Proyectos financiables', 'Contenido de base de datos', 'grupos.html', 6, 6),
+        /*Contáctenos*/
+	('Contáctenos', NULL, '/contacto', 1, 1),
+	('Contáctenos', NULL, '/contacto', 2, 2),
+	('Contáctenos', NULL, '/contacto', 3, 3),
+	('Contáctenos', NULL, '/contacto', 4, 4),
+	('Contáctenos', NULL, '/contacto', 5, 5),
+	('Contáctenos', NULL, '/contacto', 6, 6),
+	('Contáctenos', NULL, '/contacto', 7, 7),
+	('Contáctenos', NULL, '/contacto', 8, 8),
+	('Contáctenos', NULL, '/contacto', 9, 8);
