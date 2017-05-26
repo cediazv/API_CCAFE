@@ -1,7 +1,7 @@
 var db = require('../utilities/database');
 
 var getAll = function(req, res, next){
-	db.database().any('select cod_comite, nombre_comite, icono_comite from comite order by cod_comite')
+	db.database().any('select cod_comite, nombre_comite, icono_comite, url_comite from comite order by cod_comite')
     .then(function (data) {
       res.status(200)
         .json({
