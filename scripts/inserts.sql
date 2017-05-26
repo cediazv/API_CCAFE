@@ -27,3 +27,19 @@ VALUES
 INSERT INTO integrante_comite (cod_comite, cod_integrante, cod_rol)
 VALUES (1, 1, 1), (2, 2, 1), (3, 3, 1), (4, 4, 1), (5, 3, 1), (5, 5, 1),
 	(6, 6, 1), (7, 1, 1), (8, 7, 1), (9, 8, 1);
+
+INSERT INTO menu_comite (nombre_menu, contenido_menu, url_menu, cod_comite, cod_integrante_reg)
+VALUES
+        /*¿Quiénes somos?*/
+	('¿Quiénes somos?', NULL, 'quienes.html', 1, 1),
+	('¿Quiénes somos?', 'Contenido de base de datos', NULL, 2, 2),
+	('¿Quiénes somos?', NULL, 'quienes.html', 3, 3),
+	('¿Quiénes somos?', 'Contenido de base de datos', NULL, 4, 4),
+	('¿Quiénes somos?', NULL, 'quienes.html', 5, 5),
+	('¿Quiénes somos?', 'Contenido de base de datos', NULL, 6, 6),
+	('¿Quiénes somos?', NULL, 'quienes.html', 7, 7),
+	('¿Quiénes somos?', 'Contenido de base de datos', NULL, 8, 8),
+	('¿Quiénes somos?', NULL, 'quienes.html', 9, 8),
+        /*OTROS*/
+	('Alianzas con países', NULL, 'quienes.html', 9, 8),
+	('Alianzas con instituciones', 'Contenido de base de datos', NULL, 9, 8);
