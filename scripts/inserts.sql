@@ -40,6 +40,11 @@ VALUES
 	('¿Quiénes somos?', NULL, 'quienes.html', 7, 7),
 	('¿Quiénes somos?', 'Contenido de base de datos', NULL, 8, 8),
 	('¿Quiénes somos?', NULL, 'quienes.html', 9, 8),
-        /*OTROS*/
+        /*OTROS: Internacionalización*/
 	('Alianzas con países', NULL, 'alianzaPaises.html', 9, 8),
-	('Alianzas con instituciones', 'Contenido de base de datos', NULL, 9, 8);
+	('Alianzas con instituciones', 'Contenido de base de datos', NULL, 9, 8),
+        /*OTROS: Éxito estudiantil*/
+	('Orientación vocacional y profesional', NULL, 'orientacion.html', 8, 8),
+	('Talleres para el aprendizaje', 'Contenido de base de datos', NULL, 8, 8),
+	('Grupos de apoyo', NULL, 'apoyo.html', 8, 8),
+	('PAE', 'Contenido de base de datos', NULL, 8, 8);
