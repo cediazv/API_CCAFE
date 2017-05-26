@@ -41,5 +41,5 @@ VALUES
 	('¿Quiénes somos?', 'Contenido de base de datos', NULL, 8, 8),
 	('¿Quiénes somos?', NULL, 'quienes.html', 9, 8),
         /*OTROS*/
-	('Alianzas con países', NULL, 'quienes.html', 9, 8),
+	('Alianzas con países', NULL, 'alianzaPaises.html', 9, 8),
 	('Alianzas con instituciones', 'Contenido de base de datos', NULL, 9, 8);
