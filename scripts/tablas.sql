@@ -13,6 +13,7 @@ CREATE TABLE integrante
 	nombre_integrante VARCHAR(40) NOT NULL,
 	apellido_integrante VARCHAR(40) NOT NULL,
 	cedula_integrante INT NOT NULL,
+	estado_integrante BOOLEAN NOT NULL DEFAULT TRUE,
 	CONSTRAINT pk_cod_integrante PRIMARY KEY (cod_integrante),
 	CONSTRAINT uk_cedula_integrante UNIQUE (cedula_integrante)
 );
@@ -37,6 +38,7 @@ CREATE TABLE integrante_comite
 	cod_comite INT NOT NULL,
 	cod_integrante INT NOT NULL,
 	cod_rol INT NOT NULL,
+	estado_integrante_comite BOOLEAN NOT NULL DEFAULT TRUE,
 	f_ingreso DATE NOT NULL DEFAULT CURRENT_DATE,
 	CONSTRAINT pk_int_com UNIQUE (cod_comite, cod_integrante),
 	CONSTRAINT fk_cod_comite FOREIGN KEY (cod_comite) REFERENCES comite (cod_comite),
