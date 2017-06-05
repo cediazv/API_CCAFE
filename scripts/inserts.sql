@@ -17,7 +17,7 @@ VALUES
 	('Responsabilidad social', CURRENT_DATE, 'Banner_rsu.png', 'icon_rsu_circle.png', NULL),
 	('Egresados', CURRENT_DATE, 'Banner_egresados.png', 'icon_egresados_circle.png', NULL),
 	('Calidad', CURRENT_DATE, 'Banner_Calidad.png', 'icon_calidad_circle.png', NULL),
-	('Curricular', CURRENT_DATE, 'Banner_Curricular.png', 'icon_curricular_circle.png', NULL),
+	('Curricular', CURRENT_DATE, 'Banner_curricular.png', 'icon_curricular_circle.png', NULL),
 	('Comunicaciones', CURRENT_DATE, 'Banner_Comunicaciones.png', 'icon_comunicaciones_circle.png', NULL),
 	('Investigaciones', CURRENT_DATE, 'Banner_investigaciones.png', 'icon_investigacion_circle.png', NULL),
 	('Prácticas empresariales', CURRENT_DATE, 'Banner_externo.png', 'icon_externo_circle.png', NULL),
