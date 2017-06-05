@@ -19,7 +19,7 @@ VALUES
 	('Calidad', CURRENT_DATE, 'Banner_Calidad.png', 'icon_calidad_circle.png', NULL),
 	('Curricular', CURRENT_DATE, 'Banner_Curricular.png', 'icon_curricular_circle.png', NULL),
 	('Comunicaciones', CURRENT_DATE, 'Banner_Comunicaciones.png', 'icon_comunicaciones_circle.png', NULL),
-	('Investigaciones', CURRENT_DATE, 'Banner_investigaciones.png', 'icon_investigación_circle.png', NULL),
+	('Investigaciones', CURRENT_DATE, 'Banner_investigaciones.png', 'icon_investigacion_circle.png', NULL),
 	('Prácticas empresariales', CURRENT_DATE, 'Banner_externo.png', 'icon_externo_circle.png', NULL),
 	('Éxito estudiantil', CURRENT_DATE, 'Banner_exito.png', 'icon_exito_circle.png', NULL),
 	('Internacionalización', CURRENT_DATE, 'Banner_internacionalizacion.png', 'icon_internacionalizacion_circle.png', 'prueba.html');
