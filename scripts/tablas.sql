@@ -14,6 +14,8 @@ CREATE TABLE integrante
 	apellido_integrante VARCHAR(40) NOT NULL,
 	cedula_integrante INT NOT NULL,
 	estado_integrante BOOLEAN NOT NULL DEFAULT TRUE,
+	usuario_integrante VARCHAR(20) NULL,
+	clave_integrante TEXT NULL, //Para guardar se debe usar la función MD5(clave)
 	CONSTRAINT pk_cod_integrante PRIMARY KEY (cod_integrante),
 	CONSTRAINT uk_cedula_integrante UNIQUE (cedula_integrante)
 );
