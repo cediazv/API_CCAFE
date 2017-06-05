@@ -1,16 +1,16 @@
 INSERT INTO rol (nombre_rol)
 VALUES ('Encargado'), ('Asistente');
 
-INSERT INTO integrante (nombre_integrante, apellido_integrante, cedula_integrante)
+INSERT INTO integrante (nombre_integrante, apellido_integrante, cedula_integrante, usuario_integrante, clave_integrante)
 VALUES 
-	('Constanza', 'Alvarado', 1234),
-	('Hernando', 'Camargo', 1232),
-	('Carlos', 'Ortíz', 4324),
-	('Germán', 'Vargas', 4563),
-	('Germán', 'Campos', 45645),
-	('Guiovana', 'Sabogal', 8762),
-	('Natalia', 'Parra', 7274),
-	('Amparo', 'Mejía', 9823);
+	('Constanza', 'Alvarado', 1234, NULL, NULL),
+	('Hernando', 'Camargo', 1232, NULL, NULL),
+	('Carlos', 'Ortíz', 4324, NULL, NULL),
+	('Germán', 'Vargas', 4563, NULL, NULL),
+	('Germán', 'Campos', 45645, NULL, NULL),
+	('Guiovana', 'Sabogal', 8762, NULL, NULL),
+	('Natalia', 'Parra', 7274, 'natalia.parra', MD5('asdf1234')),
+	('Amparo', 'Mejía', 9823, NULL, NULL);
 
 INSERT INTO comite (nombre_comite, f_creacion_comite, banner_comite, icono_comite, url_comite )
 VALUES
